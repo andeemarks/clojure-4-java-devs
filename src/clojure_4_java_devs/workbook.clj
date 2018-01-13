@@ -1,6 +1,8 @@
 ;; gorilla-repl.fileformat = 1
 
 ;; **
+;;; ![Logo](http://i.imgur.com/1GjPKvB.png)
+;;; 
 ;;; # An Intro to Clojure (for Java Developers)
 ;;; 
 ;;;  By Andy Marks
@@ -23,50 +25,133 @@
         shifted-map (-> (zipmap alphabet-chars alphabet-shifted)
                         (assoc \space \space))]
     (apply str (map shifted-map (map char words)))))
+
+(caesar-cipher "hello world" 3)
 ;; @@
 ;; =>
-;;; {"type":"html","content":"<span class='clj-var'>#&#x27;user/caesar-cipher</span>","value":"#'user/caesar-cipher"}
+;;; {"type":"html","content":"<span class='clj-string'>&quot;khoor zruog&quot;</span>","value":"\"khoor zruog\""}
 ;; <=
 
 ;; **
 ;;; ## Lots of stuff going on here!
 ;;; 
-;;; * prefix notation/s-expressions
-;;; * function definitions
-;;; * function arguments
-;;; * function comments
-;;; * local bindings (via let)
-;;; * function invocation
-;;; * first class functions
-;;; * core api usage
+;;; 1. prefix notation/s-expressions
+;;; 1. function definitions
+;;; 1. function arguments
+;;; 1. function comments
+;;; 1. local bindings (via let)
+;;; 1. function invocation
+;;; 1. first class functions
+;;; 1. core api usage
 ;;; 
 ;;; _Let's look at each of these in turn..._
 ;; **
 
 ;; **
-;;; ### Prefix Notation
+;;; ### 1. Prefix Notation
 ;;; 
-;;; * Function comes first, then arg list
+;;; * Function name comes first, then arg list
+;;; * Everything comes in parenthesis
 ;;; * ```(println "Hello World")``` versus ```System.out.println("Hello world");```
-;;; * Almost everything is an s-expression
+;;; * _Almost_ everything is an s-expression
+;;; 
 ;; **
 
 ;; @@
 (println "Hello World")
 (+ 3 4)
+(+ 1 2 3 4) ;; function name only needed once
+(/ 4 (- 1 (+ 2 3))) ;; this takes a bit of getting used to
 ;; @@
 ;; ->
 ;;; Hello World
 ;;; 
 ;; <-
 ;; =>
-;;; {"type":"html","content":"<span class='clj-long'>7</span>","value":"7"}
+;;; {"type":"html","content":"<span class='clj-long'>-1</span>","value":"-1"}
 ;; <=
 
 ;; **
-;;; ### Function Definition
+;;; ![XKCD](https://imgs.xkcd.com/comics/lisp_cycles.png)
+;; **
+
+;; **
+;;; ### 2. Function Definition
+;;; 
+;;; * ```def``` is a function that creates a global variable with a name and namespace
+;;; * ```fn``` is a function that creates an (usually) anonymous function
+;;; * ```defn``` is a macro that combines ```def``` and ```fn``` to define a named function
+;;; * Note: no explicit typing of function return type
 ;; **
 
 ;; @@
-(user/caesar-cipher)
+(defn hello [] "Hello World") ;; Creates 0-arg function in user (default) namespace
+(hello) ;; calls function 
 ;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-string'>&quot;Hello World&quot;</span>","value":"\"Hello World\""}
+;; <=
+
+;; **
+;;; The equivalent in Java is
+;;; ~~~~
+;;; public String hello() {
+;;; 	return "Hello World"
+;;; };
+;;; ~~~~
+;;; 
+;; **
+
+;; **
+;;; ### 3. Function Arguments
+;;; 
+;;; * All arguments names in square brackets in function definition
+;;; * Variadic arguments can be grouped
+;;; * Lots of support for destructing arguments
+;; **
+
+;; **
+;;; ```
+;;; (defn caesar-cipher [words offset] ...)
+;;; ```
+;; **
+
+;; **
+;;; ### 4. Function Comments
+;; **
+
+;; **
+;;; ### 5. Local Bindings
+;; **
+
+;; **
+;;; ### 6. Function Invocation
+;; **
+
+;; **
+;;; ### 7. First Class Functions
+;; **
+
+;; **
+;;; ### 8. Core API Usage
+;; **
+
+;; **
+;;; ## What Else?
+;; **
+
+;; **
+;;; ### Java Interop
+;; **
+
+;; **
+;;; ### The Read Eval Print Loop (REPL)
+;; **
+
+;; **
+;;; ### Functional Thinking
+;; **
+
+;; **
+;;; 
+;; **
