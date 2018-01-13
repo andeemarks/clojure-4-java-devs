@@ -3,14 +3,70 @@
 ;; **
 ;;; # An Intro to Clojure (for Java Developers)
 ;;; 
-;;; Welcome to gorilla :-)
-;;; 
-;;; Shift + enter evaluates code. Hit alt+g twice in quick succession or click the menu icon (upper-right corner) for more commands ...
-;;; 
-;;; It's a good habit to run each worksheet in its own namespace: feel free to use the declaration we've provided below if you'd like.
+;;;  By Andy Marks
+;;;  > Email: _Andrew.X.Marks@nab.com.au_
+;;;  
+;;;  > Room: _12.622_
+;;;  
+;;;  > Twitter: _@andee_marks_
+;; **
+
+;; **
+;;; ## Our first look at Clojure
 ;; **
 
 ;; @@
-(ns affectionate-cavern
-  (:require [gorilla-plot.core :as plot]))
+(defn caesar-cipher [words offset]
+  "Assumes offset >=0, words entirely lowercase English characters or spaces"
+  (let [alphabet-chars (map char "abcdefghijklmnopqrstuvwxyz")
+        alphabet-shifted (->> (cycle alphabet-chars) (take 100) (drop offset))
+        shifted-map (-> (zipmap alphabet-chars alphabet-shifted)
+                        (assoc \space \space))]
+    (apply str (map shifted-map (map char words)))))
+;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-var'>#&#x27;user/caesar-cipher</span>","value":"#'user/caesar-cipher"}
+;; <=
+
+;; **
+;;; ## Lots of stuff going on here!
+;;; 
+;;; * prefix notation/s-expressions
+;;; * function definitions
+;;; * function arguments
+;;; * function comments
+;;; * local bindings (via let)
+;;; * function invocation
+;;; * first class functions
+;;; * core api usage
+;;; 
+;;; _Let's look at each of these in turn..._
+;; **
+
+;; **
+;;; ### Prefix Notation
+;;; 
+;;; * Function comes first, then arg list
+;;; * ```(println "Hello World")``` versus ```System.out.println("Hello world");```
+;;; * Almost everything is an s-expression
+;; **
+
+;; @@
+(println "Hello World")
+(+ 3 4)
+;; @@
+;; ->
+;;; Hello World
+;;; 
+;; <-
+;; =>
+;;; {"type":"html","content":"<span class='clj-long'>7</span>","value":"7"}
+;; <=
+
+;; **
+;;; ### Function Definition
+;; **
+
+;; @@
+(user/caesar-cipher)
 ;; @@
