@@ -77,13 +77,14 @@
 ;; **
 
 ;; **
-;;; ### 2. Function Definition
+;;; ### 2. Function Definitions
 ;;; 
-;;; * ```def``` is a function that creates a global variable with a name and namespace
-;;; * ```fn``` is a function that creates an (usually) anonymous function
-;;; * ```defn``` is a macro that composes ```def``` and ```fn``` to define a named function
+;;; * Options:
+;;;  * ```def``` is a function that creates a global variable with a name and namespace
+;;;  * ```fn``` is a function that creates an (usually) anonymous function
+;;;  * ```defn``` is a macro that composes ```def``` and ```fn``` to define a named function
 ;;; * Functions are public by default
-;;; * Note: no explicit typing of function return type
+;;; * Note: no explicit typing of function return type or parameters
 ;; **
 
 ;; @@
@@ -171,10 +172,65 @@
 
 ;; **
 ;;; ### 5. Local Bindings
+;;; 
+;;; * ```let``` is a function that takes a collection of name/value pairs
+;;; * Scope is local to the ```(let [name1 value1 name2 value2...] ...)``` block
+;;; * Values cannot be re-bound (i.e., immutable)
+;;; 
+;;; Our ```caesar-cipher``` binds values to three variables within the ```let``` block...
 ;; **
+
+;; @@
+(defn caesar-cipher 
+  "Assumes offset >=0, words entirely lowercase English characters or spaces"
+  [words offset]
+  (let [alphabet-chars (map char "abcdefghijklmnopqrstuvwxyz")
+        alphabet-shifted (->> (cycle alphabet-chars) (take 100) (drop offset))
+        shifted-map (-> (zipmap alphabet-chars alphabet-shifted)
+                        (assoc \space \space))]
+    (apply str (map shifted-map (map char words)))))
+;; @@
+
+;; **
+;;; In Java, this is the equivalent of...
+;; **
+
+;; @@
+public String caesarCipher (String words, int offset) {
+  char[] alphabetChars = ...;
+  char[] alphabetShifted = ...;
+  ...
+};
+                                                        
+                                                      
+;; @@
 
 ;; **
 ;;; ### 6. Function Invocation
+;;; 
+;;; Firstly, let's see which functions are being explicitly called in our solution:
+;;; 
+;;; * ```let```
+;;; * ```map``` (3 times)
+;;; * ```cycle```
+;;; * ```take```
+;;; * ```drop```
+;;; * ```zipmap```
+;;; * ```assoc```
+;;; * ```apply```
+;;; 
+;;; And which ones are being called behind-the-scenes:
+;;; 
+;;; * ```char``` (2 times)
+;;; * ```str```
+;;; 
+;;; Almost everything following a left parenthesis is a function call, but there are some things which are actually macro invocations:
+;;; 
+;;; * ```defn``` (we've seen this before)
+;;; * ```->``` 
+;;; * ```->>```
+;;; 
+;;; Between the functions, the macros and the ```let``` special form, that's the entire solution!
 ;; **
 
 ;; **
