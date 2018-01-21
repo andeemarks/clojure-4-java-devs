@@ -318,6 +318,11 @@ Math/PI
 
 ;; **
 ;;; ### The Read Eval Print Loop (REPL)
+;;; 
+;;; * Very common part of modern, dynamic languages
+;;; * Fast feedback loop for experimenting with code snippets
+;;; * Super powerful when executable from IDE
+;;; * Now part of Java 9
 ;; **
 
 ;; **
