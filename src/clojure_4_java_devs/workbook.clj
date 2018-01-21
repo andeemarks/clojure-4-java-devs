@@ -29,9 +29,6 @@
 
 (caesar-cipher "hello world" 3)
 ;; @@
-;; =>
-;;; {"type":"html","content":"<span class='clj-string'>&quot;khoor zruog&quot;</span>","value":"\"khoor zruog\""}
-;; <=
 
 ;; **
 ;;; ## Lots of stuff going on here!
@@ -64,13 +61,6 @@
 (+ 1 2 3 4) ;; "+" function name only needed once
 (/ 4 (- 1 (+ 2 3))) ;; nested function calls - this takes a bit of getting used to
 ;; @@
-;; ->
-;;; Hello World
-;;; 
-;; <-
-;; =>
-;;; {"type":"html","content":"<span class='clj-long'>-1</span>","value":"-1"}
-;; <=
 
 ;; **
 ;;; ![XKCD](https://imgs.xkcd.com/comics/lisp_cycles.png)
@@ -93,9 +83,6 @@
 
 (defn caesar-cipher [words offset]) ;; same function definition - empty implementation
 ;; @@
-;; =>
-;;; {"type":"html","content":"<span class='clj-var'>#&#x27;user/caesar-cipher</span>","value":"#'user/caesar-cipher"}
-;; <=
 
 ;; **
 ;;; The equivalent in Java is
@@ -134,15 +121,6 @@
 (print-args "1" "2" "3" 4 5)
 (print-args)
 ;; @@
-;; ->
-;;; (1 2 3 4 5)
-;;; (1 2 3 4 5)
-;;; nil
-;;; 
-;; <-
-;; =>
-;;; {"type":"html","content":"<span class='clj-nil'>nil</span>","value":"nil"}
-;; <=
 
 ;; **
 ;;; ### 4. Function Comments
@@ -159,16 +137,6 @@
 (clojure.repl/doc caesar-cipher) ;; note: we're calling a function in another namespace
 
 ;; @@
-;; ->
-;;; -------------------------
-;;; user/caesar-cipher
-;;; ([words offset])
-;;;   Assumes offset &gt;=0, words entirely lowercase English characters or spaces
-;;; 
-;; <-
-;; =>
-;;; {"type":"html","content":"<span class='clj-nil'>nil</span>","value":"nil"}
-;; <=
 
 ;; **
 ;;; ### 5. Local Bindings
@@ -248,9 +216,6 @@ public String caesarCipher (String words, int offset) {
 (max [1 2 3])
 (apply max [1 2 3])
 ;; @@
-;; =>
-;;; {"type":"html","content":"<span class='clj-long'>3</span>","value":"3"}
-;; <=
 
 ;; **
 ;;; * Clojure supports "first class functions" (aka "higher order functions")
@@ -272,24 +237,15 @@ public String caesarCipher (String words, int offset) {
 ;; @@
 (drop 1 [1 2 3 4])
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-lazy-seq'>(</span>","close":"<span class='clj-lazy-seq'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>2</span>","value":"2"},{"type":"html","content":"<span class='clj-long'>3</span>","value":"3"},{"type":"html","content":"<span class='clj-long'>4</span>","value":"4"}],"value":"(2 3 4)"}
-;; <=
 
 ;; @@
 (take 1 [1 2 3 4])
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-lazy-seq'>(</span>","close":"<span class='clj-lazy-seq'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>1</span>","value":"1"}],"value":"(1)"}
-;; <=
 
 ;; @@
 (take 3 (cycle ["Ho! "]))
 (apply str (take 3 (cycle ["Ho! "])))
 ;; @@
-;; =>
-;;; {"type":"html","content":"<span class='clj-string'>&quot;Ho! Ho! Ho! &quot;</span>","value":"\"Ho! Ho! Ho! \""}
-;; <=
 
 ;; **
 ;;; * Note: ```cycle``` is "lazy", so don't call in isolation (or if you're in a hurry :-))
@@ -298,16 +254,10 @@ public String caesarCipher (String words, int offset) {
 ;; @@
 (->> (cycle (map char "abcdefghijklmnopqrstuvwxyz")) (take 100) (drop 5))
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-lazy-seq'>(</span>","close":"<span class='clj-lazy-seq'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"}],"value":"(\\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v)"}
-;; <=
 
 ;; @@
 (drop 5 (take 100 (cycle (map char "abcdefghijklmnopqrstuvwxyz"))))
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-lazy-seq'>(</span>","close":"<span class='clj-lazy-seq'>)</span>","separator":" ","items":[{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"},{"type":"html","content":"<span class='clj-char'>\\w</span>","value":"\\w"},{"type":"html","content":"<span class='clj-char'>\\x</span>","value":"\\x"},{"type":"html","content":"<span class='clj-char'>\\y</span>","value":"\\y"},{"type":"html","content":"<span class='clj-char'>\\z</span>","value":"\\z"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"},{"type":"html","content":"<span class='clj-char'>\\d</span>","value":"\\d"},{"type":"html","content":"<span class='clj-char'>\\e</span>","value":"\\e"},{"type":"html","content":"<span class='clj-char'>\\f</span>","value":"\\f"},{"type":"html","content":"<span class='clj-char'>\\g</span>","value":"\\g"},{"type":"html","content":"<span class='clj-char'>\\h</span>","value":"\\h"},{"type":"html","content":"<span class='clj-char'>\\i</span>","value":"\\i"},{"type":"html","content":"<span class='clj-char'>\\j</span>","value":"\\j"},{"type":"html","content":"<span class='clj-char'>\\k</span>","value":"\\k"},{"type":"html","content":"<span class='clj-char'>\\l</span>","value":"\\l"},{"type":"html","content":"<span class='clj-char'>\\m</span>","value":"\\m"},{"type":"html","content":"<span class='clj-char'>\\n</span>","value":"\\n"},{"type":"html","content":"<span class='clj-char'>\\o</span>","value":"\\o"},{"type":"html","content":"<span class='clj-char'>\\p</span>","value":"\\p"},{"type":"html","content":"<span class='clj-char'>\\q</span>","value":"\\q"},{"type":"html","content":"<span class='clj-char'>\\r</span>","value":"\\r"},{"type":"html","content":"<span class='clj-char'>\\s</span>","value":"\\s"},{"type":"html","content":"<span class='clj-char'>\\t</span>","value":"\\t"},{"type":"html","content":"<span class='clj-char'>\\u</span>","value":"\\u"},{"type":"html","content":"<span class='clj-char'>\\v</span>","value":"\\v"}],"value":"(\\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v \\w \\x \\y \\z \\a \\b \\c \\d \\e \\f \\g \\h \\i \\j \\k \\l \\m \\n \\o \\p \\q \\r \\s \\t \\u \\v)"}
-;; <=
 
 ;; **
 ;;; Question: can you see what the ```->>``` macro is doing here?
@@ -316,16 +266,10 @@ public String caesarCipher (String words, int offset) {
 ;; @@
 (zipmap [1 2 3 4] [\a \b \c])
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>1</span>","value":"1"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"}],"value":"[1 \\a]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>2</span>","value":"2"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"}],"value":"[2 \\b]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>3</span>","value":"3"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"}],"value":"[3 \\c]"}],"value":"{1 \\a, 2 \\b, 3 \\c}"}
-;; <=
 
 ;; @@
 (assoc {:key1 "value"} :key2 "another value")
 ;; @@
-;; =>
-;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-keyword'>:key1</span>","value":":key1"},{"type":"html","content":"<span class='clj-string'>&quot;value&quot;</span>","value":"\"value\""}],"value":"[:key1 \"value\"]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-keyword'>:key2</span>","value":":key2"},{"type":"html","content":"<span class='clj-string'>&quot;another value&quot;</span>","value":"\"another value\""}],"value":"[:key2 \"another value\"]"}],"value":"{:key1 \"value\", :key2 \"another value\"}"}
-;; <=
 
 ;; **
 ;;; ## What Else?
@@ -337,6 +281,39 @@ public String caesarCipher (String words, int offset) {
 
 ;; **
 ;;; ### Java Interop
+;;; 
+;;; * Clojure -> Java largely provided by the ```.``` special form
+;; **
+
+;; @@
+(.toUpperCase "fred")
+
+(System/getProperty "java.vm.version")
+
+(.getName String)
+
+Math/PI
+
+(doto (new java.util.HashMap) (.put "a" 1) (.put "b" 2))
+
+(bean java.awt.Color/black)
+;; @@
+
+;; **
+;;; * Java -> Clojure via ```clojure.java.api.Clojure``` and ```clojure.lang.IFn``` classes
+;; **
+
+;; **
+;;; ```
+;;; // (+ 1 2)
+;;; IFn plus = Clojure.var("clojure.core", "+");
+;;; plus.invoke(1, 2);
+;;; 
+;;; // (map inc [1 2 3])
+;;; IFn map = Clojure.var("clojure.core", "map");
+;;; IFn inc = Clojure.var("clojure.core", "inc");
+;;; map.invoke(inc, Clojure.read("[1 2 3]"));
+;;; ```
 ;; **
 
 ;; **
@@ -345,6 +322,11 @@ public String caesarCipher (String words, int offset) {
 
 ;; **
 ;;; ### Functional Thinking
+;;; 
+;;; * You'll will quickly go "parenthesis blind"
+;;; * You will miss your explicit loops and conditionals... briefly
+;;; * You will think about the data and how to transform it rather than how to model it
+;;; * Syntax very simple, mastery comes from knowing how to compose functions
 ;; **
 
 ;; **
