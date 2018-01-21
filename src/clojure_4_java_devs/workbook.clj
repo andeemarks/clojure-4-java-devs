@@ -313,6 +313,20 @@ public String caesarCipher (String words, int offset) {
 ;;; Question: can you see what the ```->>``` macro is doing here?
 ;; **
 
+;; @@
+(zipmap [1 2 3 4] [\a \b \c])
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>1</span>","value":"1"},{"type":"html","content":"<span class='clj-char'>\\a</span>","value":"\\a"}],"value":"[1 \\a]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>2</span>","value":"2"},{"type":"html","content":"<span class='clj-char'>\\b</span>","value":"\\b"}],"value":"[2 \\b]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-long'>3</span>","value":"3"},{"type":"html","content":"<span class='clj-char'>\\c</span>","value":"\\c"}],"value":"[3 \\c]"}],"value":"{1 \\a, 2 \\b, 3 \\c}"}
+;; <=
+
+;; @@
+(assoc {:key1 "value"} :key2 "another value")
+;; @@
+;; =>
+;;; {"type":"list-like","open":"<span class='clj-map'>{</span>","close":"<span class='clj-map'>}</span>","separator":", ","items":[{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-keyword'>:key1</span>","value":":key1"},{"type":"html","content":"<span class='clj-string'>&quot;value&quot;</span>","value":"\"value\""}],"value":"[:key1 \"value\"]"},{"type":"list-like","open":"","close":"","separator":" ","items":[{"type":"html","content":"<span class='clj-keyword'>:key2</span>","value":":key2"},{"type":"html","content":"<span class='clj-string'>&quot;another value&quot;</span>","value":"\"another value\""}],"value":"[:key2 \"another value\"]"}],"value":"{:key1 \"value\", :key2 \"another value\"}"}
+;; <=
+
 ;; **
 ;;; ## What Else?
 ;; **
