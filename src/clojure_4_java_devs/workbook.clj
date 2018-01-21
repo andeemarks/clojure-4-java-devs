@@ -235,11 +235,35 @@ public String caesarCipher (String words, int offset) {
 
 ;; **
 ;;; ### 7. First Class Functions
+;;; 
+;;; In our solution, we said ```char``` and ```str``` were called "behind-the-scenes"!?!
+;;; 
+;;; 
+;; **
+
+;; @@
+(map char "hello")
+(apply str (map char "world"))
+;; @@
+;; =>
+;;; {"type":"html","content":"<span class='clj-string'>&quot;world&quot;</span>","value":"\"world\""}
+;; <=
+
+;; **
+;;; * Clojure supports "first class functions"
+;;; * A first class function can be passed as a parameter
+;;; * A first class function can be returned from a function
+;;; * ```map``` takes a function as the first argument and applies it to each element of the second argument (a collection), returning a collection
+;;; * ```apply``` takes a function as the first argument and applies it to each element of the second argument (a collection), returning a single result
 ;; **
 
 ;; **
 ;;; ### 8. Core API Usage
 ;; **
+
+;; @@
+
+;; @@
 
 ;; **
 ;;; ## What Else?
