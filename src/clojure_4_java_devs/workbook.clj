@@ -14,7 +14,26 @@
 ;; **
 
 ;; **
-;;; ## Our first look at Clojure
+;;; g## Our first look at Clojure
+;;; 
+;;; Firtly, here's a basic cipher algorithm in Java...
+;;; 
+;;; ```
+;;; private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+;;; 
+;;; public String caesarCipher(String words, int offset) {
+;;; 	plainText = plainText.toLowerCase();
+;;;     String cipherText = "";
+;;;     for (int i = 0; i < plainText.length(); i++) {
+;;;         int charPosition = ALPHABET.indexOf(plainText.charAt(i));
+;;;         int keyVal = (offset + charPosition) % 26;
+;;;         char replaceVal = ALPHABET.charAt(keyVal);
+;;;         cipherText += replaceVal;
+;;;     }
+;;;     return cipherText;
+;;; }
+;;;     ```
+;;; And here it is in Clojure...
 ;; **
 
 ;; @@
@@ -40,7 +59,7 @@
 ;;; 1. local bindings ("```let```")
 ;;; 1. function invocation
 ;;; 1. first class functions
-;;; 1. core api usage (```map/char/cycle/take/drop/zipmap/assoc/apply/str```)
+;;; 1. core api usage
 ;;; 
 ;;; _Let's look at each of these in turn..._
 ;; **
