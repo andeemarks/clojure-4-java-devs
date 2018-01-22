@@ -14,7 +14,7 @@
 ;; **
 
 ;; **
-;;; g## Our first look at Clojure
+;;; ### Our first look at Clojure
 ;;; 
 ;;; Firtly, here's a basic cipher algorithm in Java...
 ;;; 
@@ -249,7 +249,7 @@ public String caesarCipher (String words, int offset) {
 ;; **
 ;;; ### 8. Core API Usage
 ;;; 
-;;; So what do our other functions do?
+;;; _So what do our other functions do?_
 ;;; 
 ;; **
 
@@ -279,7 +279,7 @@ public String caesarCipher (String words, int offset) {
 ;; @@
 
 ;; **
-;;; Question: can you see what the ```->>``` macro is doing here?
+;;; Question: _can you see what the ```->>``` macro is doing here?_
 ;; **
 
 ;; @@
