@@ -267,7 +267,7 @@ public String caesarCipher (String words, int offset) {
 ;; @@
 
 ;; **
-;;; * Note: ```cycle``` is "lazy", so don't call in isolation (or if you're in a hurry :-))
+;;; Note: ```cycle``` is "lazy", so don't call in isolation (or if you're in a hurry :-))
 ;; **
 
 ;; @@
@@ -301,7 +301,7 @@ public String caesarCipher (String words, int offset) {
 ;; **
 ;;; ### Java Interop
 ;;; 
-;;; * Clojure -> Java largely provided by the ```.``` special form
+;;; * Clojure -> Java interop provided by the ```.``` special form
 ;; **
 
 ;; @@
@@ -319,7 +319,7 @@ Math/PI
 ;; @@
 
 ;; **
-;;; * Java -> Clojure via ```clojure.java.api.Clojure``` and ```clojure.lang.IFn``` classes
+;;; * Java -> Clojure interop via ```clojure.java.api.Clojure``` and ```clojure.lang.IFn``` classes
 ;; **
 
 ;; **
