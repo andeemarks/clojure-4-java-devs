@@ -5,10 +5,8 @@
 ;;; 
 ;;; # An Intro to Clojure (for Java Developers)
 ;;; 
-;;;  By Andy Marks
+;;;  By Andy Marks/ThoughtWorks
 ;;;  > Email: _Andrew.X.Marks@nab.com.au_
-;;;  
-;;;  > Room: _12.622_
 ;;;  
 ;;;  > Twitter: _@andee_marks_
 ;; **
@@ -32,7 +30,10 @@
 ;;;     }
 ;;;     return cipherText;
 ;;; }
-;;;     ```
+;;; 
+;;; System.out.println(caesarCipher("helloworld", 3)); => "khoorzruog"
+;;; 
+;;; ```
 ;;; And here it is in Clojure...
 ;; **
 
@@ -67,10 +68,10 @@
 ;; **
 ;;; ### 1. Prefix Notation
 ;;; 
-;;; * Function name comes first, then arg list
-;;; * Everything comes in parenthesis
+;;; * Format: ```(function-name arg1 arg2 ... argn)```
 ;;; * ```(println "Hello World")``` versus ```System.out.println("Hello world");```
-;;; * _Almost_ everything is an s-expression
+;;; * _Almost_ everything in Clojure is an s-expression
+;;; * Idiomatic Clojure relies heavily on nested s-expressions
 ;;; * Further examples:
 ;; **
 
